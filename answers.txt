@@ -1,0 +1,20 @@
+Name: Albert Liu
+UCLA ID: 904-167-727
+
+
+-------------------------------------------------------------------------------
+
+Response to Exercise 1: Yes, it should return the correct value. Replacing run(current) with schedule() will not cause the the value stored in the register pid is stored in to be modified. Therefore, when it does run, sys_getpid() will have returned the correct value.
+
+
+
+Anything else you'd like us to know:
+For Exercise 2, I first looped from front to back of the procs array. The reason I looped from front to back is that I wanted the closest array index to zero. To not have to store the first "EMPTY" index and break from there, I just checked for "EMPTY" conditions looping to index 1.
+
+For Exercise 3, as suggested by the instructions, I added a field called p_waitproc_pid to the process struct to keep track of parent process waiting on the current process. I then modified INT_SYS_WAIT and INT_SYS_EXIT, as well as added a line in do_fork to set p_waiting.
+
+For Exercise 4, if we are in INT_SYS_WAIT and find that a process is a zombie, we must not just set its exit status, as has already been done, but set the process state to EMPTY as well. 
+
+
+Extra credit exercises:
+Didn't do them yet! :(
